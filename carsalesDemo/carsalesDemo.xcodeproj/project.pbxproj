@@ -19,6 +19,10 @@
 		3F3E7A9E22D71A6B004BA8C1 /* CarSummaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E7A9C22D71A6B004BA8C1 /* CarSummaryCollectionViewCell.swift */; };
 		3F3E7A9F22D71A6B004BA8C1 /* CarSummaryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3E7A9D22D71A6B004BA8C1 /* CarSummaryCollectionViewCell.xib */; };
 		3F3E7AA122D71EC8004BA8C1 /* CarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E7AA022D71EC8004BA8C1 /* CarService.swift */; };
+		3F3E7AA322D727AB004BA8C1 /* CarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E7AA222D727AB004BA8C1 /* CarDetailViewController.swift */; };
+		3F3E7AA522D72A2C004BA8C1 /* DetailCarImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E7AA422D72A2C004BA8C1 /* DetailCarImageCollectionViewCell.swift */; };
+		3F3E7AA722D72AAD004BA8C1 /* ArrayExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E7AA622D72AAD004BA8C1 /* ArrayExtention.swift */; };
+		3F3E7AA922D72BC7004BA8C1 /* UIStroyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E7AA822D72BC7004BA8C1 /* UIStroyboardExtension.swift */; };
 		5A3295066D0A4520126C5439 /* Pods_carsalesDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B1FBBDFEE746D7639B14AD /* Pods_carsalesDemoTests.framework */; };
 		9FCFDA412A1040B04F879529 /* Pods_carsalesDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F18660278630DEC7024006C /* Pods_carsalesDemoUITests.framework */; };
 		BF8C86A799473E4968F47608 /* Pods_carsalesDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814FD2B83FAACF75464AD846 /* Pods_carsalesDemo.framework */; };
@@ -62,6 +66,10 @@
 		3F3E7A9C22D71A6B004BA8C1 /* CarSummaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSummaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		3F3E7A9D22D71A6B004BA8C1 /* CarSummaryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarSummaryCollectionViewCell.xib; sourceTree = "<group>"; };
 		3F3E7AA022D71EC8004BA8C1 /* CarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarService.swift; sourceTree = "<group>"; };
+		3F3E7AA222D727AB004BA8C1 /* CarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailViewController.swift; sourceTree = "<group>"; };
+		3F3E7AA422D72A2C004BA8C1 /* DetailCarImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCarImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		3F3E7AA622D72AAD004BA8C1 /* ArrayExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtention.swift; sourceTree = "<group>"; };
+		3F3E7AA822D72BC7004BA8C1 /* UIStroyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStroyboardExtension.swift; sourceTree = "<group>"; };
 		4F18660278630DEC7024006C /* Pods_carsalesDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carsalesDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53B1FBBDFEE746D7639B14AD /* Pods_carsalesDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carsalesDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		814FD2B83FAACF75464AD846 /* Pods_carsalesDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carsalesDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +167,8 @@
 		3F3E7A9222D7164F004BA8C1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3F3E7AA622D72AAD004BA8C1 /* ArrayExtention.swift */,
+				3F3E7AA822D72BC7004BA8C1 /* UIStroyboardExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -175,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				3F3E7A6622D715F7004BA8C1 /* CarSummaryListViewController.swift */,
+				3F3E7AA222D727AB004BA8C1 /* CarDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,6 +196,7 @@
 				3F3E7A6822D715F7004BA8C1 /* Main.storyboard */,
 				3F3E7A9C22D71A6B004BA8C1 /* CarSummaryCollectionViewCell.swift */,
 				3F3E7A9D22D71A6B004BA8C1 /* CarSummaryCollectionViewCell.xib */,
+				3F3E7AA422D72A2C004BA8C1 /* DetailCarImageCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,11 +462,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3E7AA722D72AAD004BA8C1 /* ArrayExtention.swift in Sources */,
 				3F3E7AA122D71EC8004BA8C1 /* CarService.swift in Sources */,
 				3F3E7A6722D715F7004BA8C1 /* CarSummaryListViewController.swift in Sources */,
 				3F3E7A6522D715F7004BA8C1 /* AppDelegate.swift in Sources */,
 				3F3E7A9922D716D1004BA8C1 /* CarSummary.swift in Sources */,
+				3F3E7AA522D72A2C004BA8C1 /* DetailCarImageCollectionViewCell.swift in Sources */,
+				3F3E7AA922D72BC7004BA8C1 /* UIStroyboardExtension.swift in Sources */,
 				3F3E7A9E22D71A6B004BA8C1 /* CarSummaryCollectionViewCell.swift in Sources */,
+				3F3E7AA322D727AB004BA8C1 /* CarDetailViewController.swift in Sources */,
 				3F3E7A9B22D7170D004BA8C1 /* CarDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,7 +16,7 @@ class CarSummaryListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Car Detail"
+        title = "Carsales Demo"
         setUpCollectionView()
         fetchData()
     }
@@ -59,7 +59,11 @@ extension CarSummaryListViewController: UICollectionViewDataSource {
 
 //MARK: UICollectionViewDelegate
 extension CarSummaryListViewController: UICollectionViewDelegate{
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = UIStoryboard.loadCarDetailViewController()
+        vc.detailUrl = carLists[indexPath.row].DetailsUrl
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 //MARK: UICollectionViewDelegateFlowLayout
