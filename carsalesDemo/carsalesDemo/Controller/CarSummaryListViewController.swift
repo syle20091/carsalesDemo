@@ -73,19 +73,11 @@ extension CarSummaryListViewController: UICollectionViewDelegate{
 extension CarSummaryListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if UIDevice.current.userInterfaceIdiom == .pad {
-            if UIDevice.current.orientation.isLandscape {
-                let columns = 3 as CGFloat
-                let margings = 10 * (columns - 1) as CGFloat
-                let width = (collectionView.frame.size.width - CGFloat(margings)) / columns
-                let height = width
-                return CGSize(width: width, height: height)
-            }else{
-                let columns = 2 as CGFloat
-                let margings = 10 * (columns - 1) as CGFloat
-                let width = (collectionView.frame.size.width - CGFloat(margings)) / columns
-                let height = width
-                return CGSize(width: width, height: height)
-            }
+            let columns: CGFloat = UIDevice.current.orientation.isLandscape ? 3 : 2
+            let margings = 10 * (columns - 1) as CGFloat
+            let width = (collectionView.frame.size.width - CGFloat(margings)) / columns
+            let height = width
+            return CGSize(width: width, height: height)
         }
         return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
     }
