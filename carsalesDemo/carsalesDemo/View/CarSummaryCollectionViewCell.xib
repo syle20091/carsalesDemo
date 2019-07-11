@@ -29,7 +29,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C41-kZ-gIZ">
-                                <rect key="frame" x="12" y="297.5" width="42" height="21"/>
+                                <rect key="frame" x="12" y="289" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,8 +40,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdo-aP-PVj">
-                                <rect key="frame" x="12" y="256.5" width="320" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdo-aP-PVj">
+                                <rect key="frame" x="12" y="256.5" width="320" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -50,8 +50,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="smU-7P-2al" firstAttribute="width" secondItem="l5n-i5-icd" secondAttribute="width" id="1BL-kK-aGa"/>
-                            <constraint firstItem="C41-kZ-gIZ" firstAttribute="top" secondItem="Tdo-aP-PVj" secondAttribute="bottom" constant="20" id="4DS-lZ-GlT"/>
-                            <constraint firstItem="Tdo-aP-PVj" firstAttribute="leading" secondItem="l5n-i5-icd" secondAttribute="leading" constant="12" id="F0I-hW-fcq"/>
+                            <constraint firstItem="C41-kZ-gIZ" firstAttribute="top" secondItem="Tdo-aP-PVj" secondAttribute="bottom" constant="12" id="4DS-lZ-GlT"/>
+                            <constraint firstItem="Tdo-aP-PVj" firstAttribute="leading" secondItem="smU-7P-2al" secondAttribute="leading" constant="12" id="DCW-zG-tJl"/>
                             <constraint firstItem="smU-7P-2al" firstAttribute="top" secondItem="l5n-i5-icd" secondAttribute="top" id="IEZ-lf-qLg"/>
                             <constraint firstAttribute="trailing" secondItem="Tdo-aP-PVj" secondAttribute="trailing" constant="12" id="KvB-4f-lu3"/>
                             <constraint firstItem="smU-7P-2al" firstAttribute="leading" secondItem="l5n-i5-icd" secondAttribute="leading" id="OcT-hE-pRV"/>
@@ -60,7 +60,6 @@
                             <constraint firstItem="C41-kZ-gIZ" firstAttribute="leading" secondItem="l5n-i5-icd" secondAttribute="leading" constant="12" id="dcl-ib-ZqR"/>
                             <constraint firstAttribute="bottom" secondItem="WLJ-a9-2cv" secondAttribute="bottom" constant="12" id="tH4-sK-MeS"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Z5Y-mh-jVK"/>
                     </view>
                 </subviews>
             </view>
@@ -69,9 +68,10 @@
                 <constraint firstAttribute="bottom" secondItem="l5n-i5-icd" secondAttribute="bottom" constant="2" id="LNz-ji-sFM"/>
                 <constraint firstItem="l5n-i5-icd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="MCk-oL-5hN"/>
                 <constraint firstItem="l5n-i5-icd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="f2W-g1-CKi"/>
+                <constraint firstItem="l5n-i5-icd" firstAttribute="width" secondItem="kav-Cj-OMx" secondAttribute="width" id="vZA-m4-589"/>
                 <constraint firstAttribute="trailing" secondItem="l5n-i5-icd" secondAttribute="trailing" id="zek-VD-4Oh"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <viewLayoutGuide key="safeArea" id="kav-Cj-OMx"/>
             <size key="customSize" width="344" height="381"/>
             <connections>
                 <outlet property="imageView" destination="smU-7P-2al" id="ivj-Ht-Xcd"/>

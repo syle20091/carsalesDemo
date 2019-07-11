@@ -27,19 +27,25 @@ class CarDetailViewController: UIViewController {
     }
     
     fileprivate func fetchData(detailUrl: String) {
+        self.view.activityStartAnimating()
         CarService.shared.fetchCarDetail(detailUrl: detailUrl) { (carDetail, err) in
             if let err = err {
                 print("Failed to fetch courses:", err)
+                self.view.activityStopAnimating()
                 return
             }
-            
-            self.carDetailViewModel = CarDetailViewModel(carDetail: carDetail)
-            self.locationLabel.text = self.carDetailViewModel.Location
-            self.priceLabel.text = self.carDetailViewModel.Price
-            self.saleStatusLabel.text = self.carDetailViewModel.SaleStatus
-            self.commentTextView.text = self.carDetailViewModel.Comments
-            self.collectionView.reloadData()
+            self.updateUI(carDetail: carDetail)
         }
+    }
+    
+    func updateUI(carDetail: CarDetail?){
+        self.view.activityStopAnimating()
+        self.carDetailViewModel = CarDetailViewModel(carDetail: carDetail)
+        self.locationLabel.text = self.carDetailViewModel.Location
+        self.priceLabel.text = self.carDetailViewModel.Price
+        self.saleStatusLabel.text = self.carDetailViewModel.SaleStatus
+        self.commentTextView.text = self.carDetailViewModel.Comments
+        self.collectionView.reloadData()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

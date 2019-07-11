@@ -21,5 +21,4 @@ struct CarSummary: Decodable {
 
 struct CarList: Decodable {
     var Result: [CarSummary]?
-    
 }

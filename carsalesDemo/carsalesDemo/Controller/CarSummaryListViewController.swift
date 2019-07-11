@@ -26,11 +26,14 @@ class CarSummaryListViewController: UIViewController {
     }
     
     fileprivate func fetchData() {
+        self.view.activityStartAnimating()
         CarService.shared.fetchCarSummaries { (carSummaries, err) in
             if let err = err {
                 print("Failed to fetch courses:", err)
+                self.view.activityStopAnimating()
                 return
             }
+            self.view.activityStopAnimating()
             self.carSummaryViewModels = carSummaries?.map({return CarSummaryViewModel(carSummary: $0)}) ?? []
             self.collectionView.reloadData()
         }
