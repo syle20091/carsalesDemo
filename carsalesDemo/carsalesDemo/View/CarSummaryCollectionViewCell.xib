@@ -75,9 +75,9 @@
             <size key="customSize" width="344" height="381"/>
             <connections>
                 <outlet property="imageView" destination="smU-7P-2al" id="ivj-Ht-Xcd"/>
-                <outlet property="locationLabel" destination="Tdo-aP-PVj" id="hfp-6b-oEU"/>
-                <outlet property="priceLabel" destination="WLJ-a9-2cv" id="Mfm-bt-auw"/>
-                <outlet property="titleLabel" destination="C41-kZ-gIZ" id="gBy-vu-K0O"/>
+                <outlet property="locationLabel" destination="WLJ-a9-2cv" id="o1W-oC-C5j"/>
+                <outlet property="priceLabel" destination="C41-kZ-gIZ" id="ZmU-cO-B6f"/>
+                <outlet property="titleLabel" destination="Tdo-aP-PVj" id="xIh-ZV-lgb"/>
             </connections>
             <point key="canvasLocation" x="112" y="109"/>
         </collectionViewCell>
