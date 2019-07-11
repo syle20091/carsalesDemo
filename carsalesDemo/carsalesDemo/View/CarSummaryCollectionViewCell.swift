@@ -11,12 +11,12 @@ import Alamofire
 
 class CarSummaryCollectionViewCell: UICollectionViewCell {
 
-    var carSummary: CarSummary! {
+    var carSummaryViewModel: CarSummaryViewModel! {
         didSet{
-            titleLabel.text = carSummary.Title ?? ""
-            priceLabel.text = carSummary.Price ?? ""
-            locationLabel.text = carSummary.Location ?? ""
-            Alamofire.request(carSummary.MainPhoto ?? "").responseData { response in
+            titleLabel.text = carSummaryViewModel.Title
+            priceLabel.text = carSummaryViewModel.Price
+            locationLabel.text = carSummaryViewModel.Location
+            Alamofire.request(carSummaryViewModel.MainPhoto).responseData { response in
                 
                 if let image = response.result.value {
                     self.imageView.image = UIImage(data: image)

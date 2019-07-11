@@ -11,7 +11,7 @@ import UIKit
 class CarSummaryListViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var carLists: [CarSummary] = []
+    var carSummaryViewModels: [CarSummaryViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class CarSummaryListViewController: UIViewController {
                 print("Failed to fetch courses:", err)
                 return
             }
-            self.carLists = carSummaries ?? []
+            self.carSummaryViewModels = carSummaries?.map({return CarSummaryViewModel(carSummary: $0)}) ?? []
             self.collectionView.reloadData()
         }
     }
@@ -43,14 +43,14 @@ class CarSummaryListViewController: UIViewController {
 //MARK: UICollectionViewDataSource
 extension CarSummaryListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return carLists.count
+        return carSummaryViewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : CarSummaryCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarSummaryCollectionViewCell", for: indexPath) as! CarSummaryCollectionViewCell
         
-        let car = self.carLists[indexPath.row]
-        cell.carSummary = car
+        let car = self.carSummaryViewModels[indexPath.row]
+        cell.carSummaryViewModel = car
         
         return cell;
     }
@@ -61,7 +61,7 @@ extension CarSummaryListViewController: UICollectionViewDataSource {
 extension CarSummaryListViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = UIStoryboard.loadCarDetailViewController()
-        vc.detailUrl = carLists[indexPath.row].DetailsUrl
+        vc.detailUrl = carSummaryViewModels[indexPath.row].DetailsUrl
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

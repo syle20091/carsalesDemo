@@ -18,7 +18,7 @@ class CarDetailViewController: UIViewController {
     @IBOutlet weak var commentTextView: UITextView!
     
     var detailUrl: String!
-    var carDetail: CarDetail?
+    var carDetailViewModel: CarDetailViewModel = CarDetailViewModel(carDetail: CarDetail())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +33,11 @@ class CarDetailViewController: UIViewController {
                 return
             }
             
-            self.carDetail = carDetail
-            self.locationLabel.text = self.carDetail?.Overview?.Location
-            self.priceLabel.text = self.carDetail?.Overview?.Price
-            self.saleStatusLabel.text = self.carDetail?.SaleStatus
-            self.commentTextView.text = self.carDetail?.Comments
+            self.carDetailViewModel = CarDetailViewModel(carDetail: carDetail)
+            self.locationLabel.text = self.carDetailViewModel.Location
+            self.priceLabel.text = self.carDetailViewModel.Price
+            self.saleStatusLabel.text = self.carDetailViewModel.SaleStatus
+            self.commentTextView.text = self.carDetailViewModel.Comments
             self.collectionView.reloadData()
         }
     }
@@ -51,15 +51,13 @@ class CarDetailViewController: UIViewController {
 extension CarDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return carDetail?.Overview?.Photos?.count ?? 0
+        return carDetailViewModel.Photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : DetailCarImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCarImageCollectionViewCell", for: indexPath) as! DetailCarImageCollectionViewCell
         
-        guard let url = carDetail?.Overview?.Photos?[indexPath.row] else {
-            return cell
-        }
+        let url = carDetailViewModel.Photos[indexPath.row]
         
         Alamofire.request(url).responseData { response in
             
