@@ -30,5 +30,28 @@ class carsalesDemoTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    func testCarsummaryViewModel() {
+        let carsummary = CarSummary(Id: "id", Title: "title", Location: "location", Price: "price", MainPhoto: "photo", DetailsUrl: "url")
+        let viewModel = CarSummaryViewModel(carSummary: carsummary)
+        
+        XCTAssertTrue(viewModel.Title == "title")
+        XCTAssertTrue(viewModel.Location == "location")
+        XCTAssertTrue(viewModel.Price == "price")
+        XCTAssertTrue(viewModel.MainPhoto == "photo")
+        XCTAssertTrue(viewModel.DetailsUrl == "url")
+    }
+    
+    func testCarDetailViewModel() {
+        let photos = ["1"]
+        let carOverView = CarOverView(Location: "VIC", Price: "399", Photos: photos)
+        let carDetail = CarDetail(Id: "id", SaleStatus: "sale", Overview: carOverView, Comments: "comment")
+        let viewModel = CarDetailViewModel(carDetail: carDetail)
+        
+        XCTAssertTrue(viewModel.Comments == "comment")
+        XCTAssertTrue(viewModel.Location == "VIC")
+        XCTAssertTrue(viewModel.Price == "399")
+        XCTAssertTrue(viewModel.SaleStatus == "sale")
+        XCTAssertTrue(viewModel.Photos[0] == "1")
+    } 
 
 }
