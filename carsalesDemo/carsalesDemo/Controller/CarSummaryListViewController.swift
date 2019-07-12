@@ -79,6 +79,16 @@ extension CarSummaryListViewController: UICollectionViewDelegateFlowLayout {
             let height = width
             return CGSize(width: width, height: height)
         }
+        //calculate safe area padding for iphone x
+        let window = UIApplication.shared.keyWindow
+        var width = UIScreen.main.bounds.width
+        if let leftPadding = window?.safeAreaInsets.left, let rightPadding = window?.safeAreaInsets.right{
+            width = UIScreen.main.bounds.width - leftPadding - rightPadding
+        }
+        if(UIDevice.current.orientation.isLandscape){
+            return CGSize(width: width, height: width / 3 * 2 + 120)
+        }
+        
         return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
     }
 }
