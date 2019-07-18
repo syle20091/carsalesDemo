@@ -11,19 +11,19 @@ import Alamofire
 
 class CarSummaryCollectionViewCell: UICollectionViewCell {
 
-    var carSummaryViewModel: CarSummaryViewModel! {
-        didSet{
-            titleLabel.text = carSummaryViewModel.Title
-            priceLabel.text = carSummaryViewModel.Price
-            locationLabel.text = carSummaryViewModel.Location
-            Alamofire.request(carSummaryViewModel.MainPhoto).responseData { response in
-                
-                if let image = response.result.value {
-                    self.imageView.image = UIImage(data: image)
-                }
-            }
-        }
-    }
+//    var carSummaryViewModel: CarSummaryViewModel! {
+//        didSet{
+//            titleLabel.text = carSummaryViewModel.Title
+//            priceLabel.text = carSummaryViewModel.Price
+//            locationLabel.text = carSummaryViewModel.Location
+//            Alamofire.request(carSummaryViewModel.MainPhoto).responseData { response in
+//
+//                if let image = response.result.value {
+//                    self.imageView.image = UIImage(data: image)
+//                }
+//            }
+//        }
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

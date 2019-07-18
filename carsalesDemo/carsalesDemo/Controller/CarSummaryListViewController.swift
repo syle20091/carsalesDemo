@@ -7,20 +7,22 @@
 //
 
 import UIKit
+import Alamofire
 
 class CarSummaryListViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var carSummaryViewModels: [CarSummaryViewModel] = []
+//    var carSummaryViewModels: [CarSummaryViewModel] = []
     
-    var carService: CarService!
+    var carSummariesViewModel: CarSummariesViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Carsales Demo"
         setUpCollectionView()
-        carService = CarService()
+        let carService = CarService()
+        carSummariesViewModel = CarSummariesViewModel(carService: carService)
         fetchData()
     }
     
@@ -30,15 +32,13 @@ class CarSummaryListViewController: UIViewController {
     
     fileprivate func fetchData() {
         self.view.activityStartAnimating()
-        carService.fetchCarSummaries { (carSummaries, err) in
-            if let err = err {
-                print("Failed to fetch courses:", err)
-                self.view.activityStopAnimating()
-                return
+        carSummariesViewModel.fetchCarSummaries {[weak self] (error) in
+            if let error = error {
+                print("Failed to fetch courses:",error.localizedDescription)
+            }else{
+                self?.collectionView.reloadData()
             }
-            self.view.activityStopAnimating()
-            self.carSummaryViewModels = carSummaries?.map({return CarSummaryViewModel(carSummary: $0)}) ?? []
-            self.collectionView.reloadData()
+            self?.view.activityStopAnimating()
         }
     }
     
@@ -49,14 +49,24 @@ class CarSummaryListViewController: UIViewController {
 //MARK: UICollectionViewDataSource
 extension CarSummaryListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return carSummaryViewModels.count
+        return carSummariesViewModel.getCarSummariesCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : CarSummaryCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarSummaryCollectionViewCell", for: indexPath) as! CarSummaryCollectionViewCell
         
-        let car = self.carSummaryViewModels[indexPath.row]
-        cell.carSummaryViewModel = car
+        let index = indexPath.row
+        
+        cell.titleLabel.text = carSummariesViewModel.getCarTitle(with: index)
+        cell.priceLabel.text = carSummariesViewModel.getCarPrice(with: index)
+        cell.locationLabel.text = carSummariesViewModel.getCarLocation(with: index)
+        
+        let url = carSummariesViewModel.getCarMainPhoto(with: index) ?? ""
+        Alamofire.request(url).responseData { response in
+            if let image = response.result.value {
+                cell.imageView.image = UIImage(data: image)
+            }
+        }
         
         return cell;
     }
@@ -67,7 +77,7 @@ extension CarSummaryListViewController: UICollectionViewDataSource {
 extension CarSummaryListViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = UIStoryboard.loadCarDetailViewController()
-        vc.detailUrl = carSummaryViewModels[indexPath.row].DetailsUrl
+        vc.detailUrl = carSummariesViewModel.getCarDetailUrl(with: indexPath.row) ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
