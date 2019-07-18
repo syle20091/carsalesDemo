@@ -13,11 +13,14 @@ class CarSummaryListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var carSummaryViewModels: [CarSummaryViewModel] = []
     
+    var carService: CarService!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Carsales Demo"
         setUpCollectionView()
+        carService = CarService()
         fetchData()
     }
     
@@ -27,7 +30,7 @@ class CarSummaryListViewController: UIViewController {
     
     fileprivate func fetchData() {
         self.view.activityStartAnimating()
-        CarService.shared.fetchCarSummaries { (carSummaries, err) in
+        carService.fetchCarSummaries { (carSummaries, err) in
             if let err = err {
                 print("Failed to fetch courses:", err)
                 self.view.activityStopAnimating()

@@ -11,13 +11,11 @@ import Foundation
 class CarService {
     static let shared = CarService()
     
-    static let baseUrl = "https://app-car.carsalesnetwork.com.au"
-    static let testCredential = "?username=test&password=2h7H53eXsQupXvkz"
-    
-    let jsonUrl = baseUrl + "/stock/car/test/v1/listing" + testCredential
+    private let baseUrl = "https://app-car.carsalesnetwork.com.au"
+    private let testCredential = "?username=test&password=2h7H53eXsQupXvkz"
     
     func fetchCarSummaries(completion: @escaping ([CarSummary]?, Error?) -> ()) {
-        
+        let jsonUrl = baseUrl + "/stock/car/test/v1/listing" + testCredential
         guard let url = URL(string: jsonUrl) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in
@@ -45,7 +43,7 @@ class CarService {
     }
     
     func fetchCarDetail(detailUrl: String, completion: @escaping (CarDetail? , Error?) -> ()) {
-        guard let url = URL(string: CarService.baseUrl + detailUrl + CarService.testCredential) else {return}
+        guard let url = URL(string: baseUrl + detailUrl + testCredential) else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in
             if let err = err {
