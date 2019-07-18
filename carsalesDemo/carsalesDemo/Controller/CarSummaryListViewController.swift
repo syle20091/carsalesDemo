@@ -46,6 +46,7 @@ class CarSummaryListViewController: UIViewController {
         collectionView.collectionViewLayout.invalidateLayout()
     }
 }
+
 //MARK: UICollectionViewDataSource
 extension CarSummaryListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
