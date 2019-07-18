@@ -28,7 +28,6 @@
 		3F3E7AAF22D7427B004BA8C1 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E7AAE22D7427B004BA8C1 /* UIViewExtension.swift */; };
 		3F84827A22E06B3D00556F4F /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F84827922E06B3D00556F4F /* MockURLSession.swift */; };
 		3F84827C22E06CD300556F4F /* CarServiceUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F84827B22E06CD300556F4F /* CarServiceUnitTest.swift */; };
-		3F84827E22E081DD00556F4F /* CarSummaryListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F84827D22E081DD00556F4F /* CarSummaryListViewControllerSpec.swift */; };
 		5A3295066D0A4520126C5439 /* Pods_carsalesDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B1FBBDFEE746D7639B14AD /* Pods_carsalesDemoTests.framework */; };
 		9FCFDA412A1040B04F879529 /* Pods_carsalesDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F18660278630DEC7024006C /* Pods_carsalesDemoUITests.framework */; };
 		BF8C86A799473E4968F47608 /* Pods_carsalesDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814FD2B83FAACF75464AD846 /* Pods_carsalesDemo.framework */; };
@@ -81,7 +80,6 @@
 		3F3E7AAE22D7427B004BA8C1 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3F84827922E06B3D00556F4F /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		3F84827B22E06CD300556F4F /* CarServiceUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarServiceUnitTest.swift; sourceTree = "<group>"; };
-		3F84827D22E081DD00556F4F /* CarSummaryListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSummaryListViewControllerSpec.swift; sourceTree = "<group>"; };
 		4F18660278630DEC7024006C /* Pods_carsalesDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carsalesDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53B1FBBDFEE746D7639B14AD /* Pods_carsalesDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carsalesDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		814FD2B83FAACF75464AD846 /* Pods_carsalesDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carsalesDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,7 +163,6 @@
 				3F3E7A7922D715F9004BA8C1 /* carsalesDemoTests.swift */,
 				3F3E7A7B22D715F9004BA8C1 /* Info.plist */,
 				3F84827B22E06CD300556F4F /* CarServiceUnitTest.swift */,
-				3F84827D22E081DD00556F4F /* CarSummaryListViewControllerSpec.swift */,
 			);
 			path = carsalesDemoTests;
 			sourceTree = "<group>";
@@ -296,7 +293,6 @@
 				3F3E7A7122D715F9004BA8C1 /* Sources */,
 				3F3E7A7222D715F9004BA8C1 /* Frameworks */,
 				3F3E7A7322D715F9004BA8C1 /* Resources */,
-				37A11ADA802B4BDA0A4F8872 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -416,23 +412,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-carsalesDemo/Pods-carsalesDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		37A11ADA802B4BDA0A4F8872 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-carsalesDemoTests/Pods-carsalesDemoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-carsalesDemoTests/Pods-carsalesDemoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-carsalesDemoTests/Pods-carsalesDemoTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B870E1D42E0B02ED8B04301B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -529,7 +508,6 @@
 				3F84827C22E06CD300556F4F /* CarServiceUnitTest.swift in Sources */,
 				3F84827A22E06B3D00556F4F /* MockURLSession.swift in Sources */,
 				3F3E7A7A22D715F9004BA8C1 /* carsalesDemoTests.swift in Sources */,
-				3F84827E22E081DD00556F4F /* CarSummaryListViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
