@@ -19,16 +19,18 @@ class CarDetailViewController: UIViewController {
     
     var detailUrl: String!
     var carDetailViewModel: CarDetailViewModel = CarDetailViewModel(carDetail: CarDetail())
+    var carService: CarService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Car Detail"
+        carService = CarService()
         fetchData(detailUrl: detailUrl)
     }
     
     fileprivate func fetchData(detailUrl: String) {
         self.view.activityStartAnimating()
-        CarService.shared.fetchCarDetail(detailUrl: detailUrl) { (carDetail, err) in
+        carService.fetchCarDetail(detailUrl: detailUrl) { (carDetail, err) in
             if let err = err {
                 print("Failed to fetch courses:", err)
                 self.view.activityStopAnimating()

@@ -9,16 +9,26 @@
 import Foundation
 
 class CarService {
-    static let shared = CarService()
     
     private let baseUrl = "https://app-car.carsalesnetwork.com.au"
     private let testCredential = "?username=test&password=2h7H53eXsQupXvkz"
     
+    private var session: URLSession!
+    
+    init() {
+        let config = URLSessionConfiguration.default
+        session = URLSession(configuration: config, delegate: nil, delegateQueue: OperationQueue.main)
+    }
+    
+    init(session: URLSession) {
+        self.session = session
+    }
+    
     func fetchCarSummaries(completion: @escaping ([CarSummary]?, Error?) -> ()) {
         let jsonUrl = baseUrl + "/stock/car/test/v1/listing" + testCredential
         guard let url = URL(string: jsonUrl) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, err) in
+        print(jsonUrl)
+        session.dataTask(with: url) { (data, response, err) in
             if let err = err {
                 completion(nil, err)
                 print("Failed to fetch carSummaries:", err)
@@ -45,7 +55,7 @@ class CarService {
     func fetchCarDetail(detailUrl: String, completion: @escaping (CarDetail? , Error?) -> ()) {
         guard let url = URL(string: baseUrl + detailUrl + testCredential) else {return}
         
-        URLSession.shared.dataTask(with: url) { (data, response, err) in
+        session.dataTask(with: url) { (data, response, err) in
             if let err = err {
                 completion(nil, err)
                 print("Failed to fetch CarDetail:", err)

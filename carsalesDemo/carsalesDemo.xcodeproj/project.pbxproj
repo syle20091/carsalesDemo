@@ -26,6 +26,8 @@
 		3F3E7AAB22D739F9004BA8C1 /* CarSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E7AAA22D739F9004BA8C1 /* CarSummaryViewModel.swift */; };
 		3F3E7AAD22D73CA4004BA8C1 /* CarDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E7AAC22D73CA4004BA8C1 /* CarDetailViewModel.swift */; };
 		3F3E7AAF22D7427B004BA8C1 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E7AAE22D7427B004BA8C1 /* UIViewExtension.swift */; };
+		3F84827A22E06B3D00556F4F /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F84827922E06B3D00556F4F /* MockURLSession.swift */; };
+		3F84827C22E06CD300556F4F /* CarServiceUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F84827B22E06CD300556F4F /* CarServiceUnitTest.swift */; };
 		5A3295066D0A4520126C5439 /* Pods_carsalesDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B1FBBDFEE746D7639B14AD /* Pods_carsalesDemoTests.framework */; };
 		9FCFDA412A1040B04F879529 /* Pods_carsalesDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F18660278630DEC7024006C /* Pods_carsalesDemoUITests.framework */; };
 		BF8C86A799473E4968F47608 /* Pods_carsalesDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814FD2B83FAACF75464AD846 /* Pods_carsalesDemo.framework */; };
@@ -76,6 +78,8 @@
 		3F3E7AAA22D739F9004BA8C1 /* CarSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSummaryViewModel.swift; sourceTree = "<group>"; };
 		3F3E7AAC22D73CA4004BA8C1 /* CarDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailViewModel.swift; sourceTree = "<group>"; };
 		3F3E7AAE22D7427B004BA8C1 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		3F84827922E06B3D00556F4F /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		3F84827B22E06CD300556F4F /* CarServiceUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarServiceUnitTest.swift; sourceTree = "<group>"; };
 		4F18660278630DEC7024006C /* Pods_carsalesDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carsalesDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53B1FBBDFEE746D7639B14AD /* Pods_carsalesDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carsalesDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		814FD2B83FAACF75464AD846 /* Pods_carsalesDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carsalesDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,8 +159,10 @@
 		3F3E7A7822D715F9004BA8C1 /* carsalesDemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				3F84827822E06B1000556F4F /* MockData */,
 				3F3E7A7922D715F9004BA8C1 /* carsalesDemoTests.swift */,
 				3F3E7A7B22D715F9004BA8C1 /* Info.plist */,
+				3F84827B22E06CD300556F4F /* CarServiceUnitTest.swift */,
 			);
 			path = carsalesDemoTests;
 			sourceTree = "<group>";
@@ -224,6 +230,14 @@
 				3F3E7A9A22D7170D004BA8C1 /* CarDetail.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3F84827822E06B1000556F4F /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				3F84827922E06B3D00556F4F /* MockURLSession.swift */,
+			);
+			path = MockData;
 			sourceTree = "<group>";
 		};
 		592FD8E87A9C30F1E2534E79 /* Pods */ = {
@@ -491,6 +505,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F84827C22E06CD300556F4F /* CarServiceUnitTest.swift in Sources */,
+				3F84827A22E06B3D00556F4F /* MockURLSession.swift in Sources */,
 				3F3E7A7A22D715F9004BA8C1 /* carsalesDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
