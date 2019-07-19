@@ -34,19 +34,15 @@ class CarService {
                 print("Failed to fetch carSummaries:", err)
                 return
             }
-            
             guard let data = data else {return}
             
             do{
                 let carlistsJson = try JSONDecoder().decode(CarList.self, from: data)
-                
                 let carSummaries = carlistsJson.Result ?? []
-                
-                DispatchQueue.main.async {
-                    completion(carSummaries, nil)
-                }
+                completion(carSummaries, nil)
                 
             }catch let jsonErr {
+                completion(nil, jsonErr)
                 print(jsonErr)
             }
         }.resume()
@@ -61,23 +57,31 @@ class CarService {
                 print("Failed to fetch CarDetail:", err)
                 return
             }
-            
             guard let data = data else {return}
-            
             do{
                 let carlistsJson = try JSONDecoder().decode(CarDetailResult.self, from: data)
-                
                 if let result = carlistsJson.Result {
                     if let carDetail = result.item(at: 0) {
-                        DispatchQueue.main.async {
-                            completion(carDetail, nil)
-                        }
+                        completion(carDetail, nil)
                     }
                 }
-                
             }catch let jsonErr{
+                completion(nil, jsonErr)
                 print(jsonErr)
             }
         }.resume()
     }
+}
+
+protocol NetWorkRequest {
+    associatedtype Model
+    func requestModel(withUrl url:String, _ completion: @escaping (Model?, Error?)-> Void)
+    func requestList(withUrl url:String, _ completion: @escaping ([Model]?, Error?)-> Void)
+}
+
+extension NetWorkRequest {
+    func requestModel(withUrl url:String, _ completion: @escaping (Model?, Error?)-> Void){
+        
+    }
+
 }

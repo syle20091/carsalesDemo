@@ -26,17 +26,20 @@ class CarDetailViewController: UIViewController {
         title = "Car Detail"
         carService = CarService()
         fetchData(detailUrl: detailUrl)
+        view.setUpErrorBanner()
     }
     
     fileprivate func fetchData(detailUrl: String) {
         self.view.activityStartAnimating()
-        carService.fetchCarDetail(detailUrl: detailUrl) { (carDetail, err) in
+        carService.fetchCarDetail(detailUrl: detailUrl) {[weak self] (carDetail, err) in
             if let err = err {
+                self?.view.errorBanner(show: true, error: err)
                 print("Failed to fetch courses:", err)
-                self.view.activityStopAnimating()
+                self?.view.activityStopAnimating()
                 return
             }
-            self.updateUI(carDetail: carDetail)
+            self?.view.errorBanner(show: false)
+            self?.updateUI(carDetail: carDetail)
         }
     }
     

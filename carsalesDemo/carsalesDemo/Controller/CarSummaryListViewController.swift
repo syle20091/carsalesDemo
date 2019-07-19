@@ -21,6 +21,8 @@ class CarSummaryListViewController: UIViewController {
         
         title = "Carsales Demo"
         setUpCollectionView()
+        view.setUpErrorBanner()
+        
         let carService = CarService()
         carSummariesViewModel = CarSummariesViewModel(carService: carService)
         fetchData()
@@ -34,8 +36,10 @@ class CarSummaryListViewController: UIViewController {
         self.view.activityStartAnimating()
         carSummariesViewModel.fetchCarSummaries {[weak self] (error) in
             if let error = error {
+                self?.view.errorBanner(show: true, error: error)
                 print("Failed to fetch courses:",error.localizedDescription)
             }else{
+                self?.view.errorBanner(show: false)
                 self?.collectionView.reloadData()
             }
             self?.view.activityStopAnimating()
