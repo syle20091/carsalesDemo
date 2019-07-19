@@ -30,7 +30,7 @@ class CarSummaryListViewController: UIViewController {
         self.collectionView.register(UINib(nibName: "CarSummaryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CarSummaryCollectionViewCell")
     }
     
-    fileprivate func fetchData() {
+    func fetchData() {
         self.view.activityStartAnimating()
         carSummariesViewModel.fetchCarSummaries {[weak self] (error) in
             if let error = error {
@@ -48,6 +48,10 @@ class CarSummaryListViewController: UIViewController {
 }
 //MARK: UICollectionViewDataSource
 extension CarSummaryListViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return carSummariesViewModel.getCarSummariesCount()
     }
