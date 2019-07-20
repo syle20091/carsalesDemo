@@ -15,12 +15,14 @@ class CarSummaryListViewController: UIViewController {
 //    var carSummaryViewModels: [CarSummaryViewModel] = []
     
     var carSummariesViewModel: CarSummariesViewModel!
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Carsales Demo"
         setUpCollectionView()
+        setUpRefresher()
         view.setUpErrorBanner()
         
         let carService = CarService()
@@ -28,7 +30,20 @@ class CarSummaryListViewController: UIViewController {
         fetchData()
     }
     
+    func setUpRefresher() {
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        
+        refreshControl = refresher
+        collectionView!.addSubview(refreshControl!)
+    }
+    
+    @objc func refreshData() {
+        fetchData()
+    }
+    
     func setUpCollectionView() {
+        self.collectionView.alwaysBounceVertical = true
         self.collectionView.register(UINib(nibName: "CarSummaryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CarSummaryCollectionViewCell")
     }
     
@@ -43,6 +58,7 @@ class CarSummaryListViewController: UIViewController {
                 self?.collectionView.reloadData()
             }
             self?.view.activityStopAnimating()
+            self?.refreshControl.endRefreshing()
         }
     }
     
