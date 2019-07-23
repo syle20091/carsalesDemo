@@ -69,6 +69,7 @@ extension CarDetailViewController: UICollectionViewDataSource {
         let cell : DetailCarImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCarImageCollectionViewCell", for: indexPath) as! DetailCarImageCollectionViewCell
         
         let url = carDetailViewModel.Photos[indexPath.row]
+        cell.imageView.image = UIImage(named: "Default_Image_Thumbnail")
         
         Alamofire.request(url).responseData { response in
             
